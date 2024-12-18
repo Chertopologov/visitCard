@@ -2,6 +2,7 @@ body {
     background-color: aqua;
     margin: 0;
     padding: 0;
+    /* overflow-x: hidden; */
 }
 
 
@@ -16,8 +17,8 @@ header {
     background-color: #000000;
     color: #fff;
     text-align: center;
-    padding: 0 20px 0 20px;
-    width: 100%;
+    /* padding: 0 2dvw 0 2dvw; */
+    width: 100dvw;
     /* max-width: 1200px; */
 }
 
@@ -36,7 +37,7 @@ header {
                 display: block;
                 text-align: center;
                 align-content: center;
-                /* padding-left: 1%; */
+                padding-left: 3%;
             }
             .title a {
                 text-decoration: none;
@@ -50,7 +51,7 @@ header {
                 display: block;
                 text-align: center;
                 align-content:center;
-                /* padding-right: 1%; */
+                padding-right: 3%;
             }
             .main-menu a {
                 color: #fff;
@@ -110,7 +111,7 @@ main {
     background-color: #000000;
     color: #fff;
     /* text-align: center; */
-    padding: 0 20px 0 20px;
+    /* padding: 0 20px 0 20px; */
     width: 100%;
 }
     .container {
