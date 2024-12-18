@@ -1,0 +1,165 @@
+body {
+    background-color: aqua;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+/* HEADER */
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 0 20px 0 20px;
+    width: 100%;
+    /* max-width: 1200px; */
+}
+
+
+        .main-nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            border-bottom: 2px solid rgb(255, 255, 255);
+            position: relative;
+
+        } 
+            .title {
+                display: block;
+                text-align: center;
+                align-content: center;
+                /* padding-left: 1%; */
+            }
+            .title a {
+                text-decoration: none;
+                color: #fff;
+            }
+            .h6 {
+                font-size: 26px;
+                text-decoration: none;
+            }
+            .main-menu {
+                display: block;
+                text-align: center;
+                align-content:center;
+                /* padding-right: 1%; */
+            }
+            .main-menu a {
+                color: #fff;
+                text-decoration: none;
+            }
+            .main-menu a :hover{
+                text-decoration: line-through;
+            }
+                .main-menu ul {
+                    display: flex;
+                    flex-direction: row;
+                    width: auto;
+                }
+                .main-menu ul li {
+                    display: flex;
+                    padding: 3px;
+                }
+
+
+
+
+
+
+
+/* MAIN */
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    color: #fff;
+    /* text-align: center; */
+    padding: 0 20px 0 20px;
+    width: 100%;
+}
+    .container {
+        width: 100%;
+        margin: 0 ;
+        padding: 20px 0;
+
+    }
+
+
+
+
+
+
+
+    /* PAGE_HEADER */
+    .page-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+       .page-header > .text{
+            font-size: 42px;
+            /* padding-bottom: 2%; */
+        }
+        .page-header > .content {
+            max-width: 50%;
+            align-items: end;
+            /* text-align: right; */
+        }
+        .page-header > .content :nth-child(1){
+            text-align: right;
+        }
+        .page-header > .content p {
+            margin: 0;
+            width: 100%;
+        }
+
+
+
+
+
+/* PAGE MAIN CONTENT */
+.page-main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Медиазапросы для экранов от 768px и меньше */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    header nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav a {
+        margin: 5px 0;
+    }
+}
