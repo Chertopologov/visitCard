@@ -69,7 +69,34 @@ header {
                     padding: 3px;
                 }
 
-
+                @media (max-width: 768px) {
+                    /* header {
+                        text-align: left; /* Смещаем текст в шапке влево 
+                    } */
+                
+                    .main-nav {
+                        /* flex-direction: column; Размещаем название и меню в столбик */
+                        align-items: center; /* Выравниваем элементы по центру */
+                    }
+                
+                    .title {
+                      text-align: center;
+                      padding-bottom: 10px;
+                    }
+                
+                    .main-menu {
+                      text-align: center;
+                    }
+                    .main-menu ul {
+                        flex-direction: column; /* Размещаем пункты меню в столбик */
+                        padding: 0;
+                    }
+                
+                    .main-menu ul li {
+                        margin-bottom: 10px;
+                        padding: 0;
+                    }
+}
 
 
 
@@ -87,6 +114,8 @@ main {
     width: 100%;
 }
     .container {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         margin: 0 ;
         padding: 20px 0;
@@ -99,7 +128,7 @@ main {
 
 
 
-    /* PAGE_HEADER */
+/* PAGE_HEADER */
     .page-header {
         display: flex;
         flex-direction: row;
@@ -123,6 +152,28 @@ main {
             width: 100%;
         }
 
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column; /* Размещаем элементы в столбик */
+                align-items: center; /* Выравниваем по центру на маленьких экранах */
+            }
+        
+            .page-header > .text {
+                font-size: 32px; /* Уменьшаем размер текста */
+                text-align: center;  /* Выравниваем текст по центру */
+                margin-bottom: 10px; /* Добавляем отступ снизу */
+        
+            }
+        
+            .page-header > .content {
+                max-width: 100%; /* Позволяем content занимать всю ширину */
+                align-items: center; /* Выравниваем контент по центру */
+            }
+        
+               .page-header > .content :nth-child(1) {
+                    text-align: center;  /* Выравниваем текст по центру */
+               }
+        }
 
 
 
@@ -132,34 +183,28 @@ main {
     display: flex;
     flex-direction: row;
 }
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* Медиазапросы для экранов от 768px и меньше */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-    header nav {
+    .main-wrapper {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
     }
+        .main-wrapper .text {
+            padding-top: 20px; 
+            flex-direction: row;
+            width: 50%;
+        }
+            .main-wrapper .h2 {
+                font-size: 32px;
+                padding-bottom: 20px;
+            
+            }
+            .main-wrapper p {
+                display: flex;
 
-    header nav a {
-        margin: 5px 0;
-    }
-}
+                margin: 0;
+                justify-content: flex-end;   
+            }
+            .animated-img{
+                width: 50%;
+            }
