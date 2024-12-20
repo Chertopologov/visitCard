@@ -7,6 +7,7 @@ body {
     padding: 0;
 
 }
+
 /* HEADER */
 header {
     background-color: #000000;
@@ -174,6 +175,9 @@ main {
           
 
         @media (max-width: 768px) {
+            .body {
+                width: 100%;
+            }
             .page-header > .text {
                  font-size: 32px;
           }
