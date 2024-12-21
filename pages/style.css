@@ -62,28 +62,7 @@ header {
                     display: flex;
                     padding: 3px;
                 }
-                
-/* @media (max-width: 768px) {
-    header {
-      width: 100%;
-    }
-    .main-nav {
-        align-items: center;
-        padding: 10px;
-    }
 
-    .title {
-        margin-bottom: 10px;
-    }
-    .main-menu ul{
-        flex-direction: column;
-        margin: 0 auto; 
-        padding: 0;
-    }
-    .main-menu ul li{
-        text-align: center;
-    }
-} */
 
 
 
@@ -92,11 +71,9 @@ header {
 /* MAIN */
 main {
     display: flex;
-    flex-direction: column;
     background-color: #000000;
     color: #fff;
     width: 1200px;
-    align-items: center;
     margin: 0 auto;
 
 }
@@ -119,7 +96,6 @@ main {
 /* PAGE_HEADER */
     .page-header {
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         width: 100%;
         padding: 20px;
@@ -214,18 +190,18 @@ main {
 /* PAGE MAIN CONTENT */
 .page-main-content {
     display: flex;
-    flex-direction: row;
 }
     .main-wrapper {
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
-        align-items: flex-start;
+        perspective: 800px;
+        align-items: center;
     }
         .main-wrapper .text {
             padding-top: 20px; 
             flex-direction: row;
             width: 50%;
+
         }
             .main-wrapper .h2 {
                 font-size: 32px;
@@ -234,14 +210,26 @@ main {
             }
             .main-wrapper p {
                 display: flex;
-
                 margin: 0;
                 justify-content: flex-end;   
             }
-            .animated-img{
-                width: 50%;
-                overflow: hidden;
-                background: #111;
+            .rotating-container {
+                display: inline-block;
+                animation: rotateText 5s linear infinite;
+                transform-origin: center;
+            }
+            .rotating-text{
+                font-size: 3em;
+                color: #ffffff;
+                white-space: nowrap;
+            }
+            @keyframes rotateText {
+                0% {
+                    transform: rotateY(0deg);
+                }
+                100% {
+                    transform: rotateY(-360deg);
+                }
             }
 
         
