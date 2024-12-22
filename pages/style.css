@@ -107,7 +107,6 @@ main {
         }
         .page-header > .content {
             max-width: 50%;
-            align-items: end;
         }
         .page-header > .content :nth-child(1){
             text-align: right;
@@ -116,6 +115,16 @@ main {
             margin: 0;
             text-align: right;
         }
+        .calendar-container {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+          }
+          #dateDisplay {
+              font-size: 24px;
+               margin-bottom: 10px;
+          }
+          
 
        
 
@@ -175,6 +184,15 @@ main {
             }
 
         
+
+
+
+
+
+
+
+
+            
 /* MEDIA */
 
             @media (max-width: 1200px) {
