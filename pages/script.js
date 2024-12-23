@@ -1,30 +1,32 @@
-const rotatingContainer = document.querySelector('.rotating-container');
 const rotatingText = document.getElementById('rotatingText');
+const rotatingContainer = document.querySelector('.rotating-container');
 
-let angle = 1; // Отслеживаем угол вручную
-const rotationSpeed = 1; // скорость вращения
+let angle = 0;
+const rotationSpeed = 2;
+let textRotation = 0;
+
 
 function updateTextRotation() {
-  // angle = (angle + rotationSpeed) % 360; // Обновляем угол (0 - 360)
-  // rotatingContainer.style.transform = `rotateY(${angle}deg)`; // Вращаем контейнер
+    let deltaTime = 1/60;
 
-  // // Корректируем поворот текста
-  //   if (angle >= 180) {
-  //       angle = 0;
-  //   } 
-  //   else {
-  //       rotatingText.style.transform = 'rotateY(180deg)';
-  //   }
-  angle = angle >= 180 
-        ? 0
-        : (angle + rotationSpeed); // Обновляем угол (0 - 360)
+    angle = angle + rotationSpeed * deltaTime; //  угол контейнера
 
-  rotatingContainer.style.transform = angle == 0 
-        ? `rotateY(180deg)`
-        : `rotateY(${angle}deg)`; // Вращаем контейнер
+     rotatingContainer.style.transform = `rotateY(${angle % 360}deg)`;  // вращаем контейнер
 
-  requestAnimationFrame(updateTextRotation);
+    // Корректируем поворот текста
+      if (angle % 360 > 90 && angle % 360 < 270) {
+         textRotation = (angle + 180);
+      }else{
+         textRotation = angle;
+       }
+
+
+    rotatingText.style.transform = `rotateY(${textRotation}deg)`;  // вращаем текст
+
+
+    requestAnimationFrame(updateTextRotation);
 }
+
 updateTextRotation();
 
 
@@ -35,7 +37,16 @@ function updateDateTime() {
   const now = new Date();
   const optionsDate = {  day: 'numeric', month: 'short' };
   const formattedDate = now.toLocaleDateString('en-GB', optionsDate);
-  dateDisplay.textContent = formattedDate;
+  
+  const parts = formattedDate.split(' ');
+  
+  if (parts.length === 2) {
+       parts[1] = parts[1].toLowerCase();
+  }
+
+  const lowerCaseMonthDate = parts.join(' ');
+  
+  dateDisplay.textContent = lowerCaseMonthDate;
 }
 setInterval(updateDateTime, 1000);
 updateDateTime();
