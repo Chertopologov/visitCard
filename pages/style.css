@@ -171,38 +171,47 @@ main {
                 white-space: nowrap;
                 display: inline-block;
             }
-            /* @keyframes rotateText {
-                0% {
-                    transform: rotateY(0deg);
-                }
-                100% {
-                    transform: rotateY(360deg);
-                }
-            } */
+            
+
+
+
+
+
 
 /* PAGE FOOTER */
 
 .page-footer {
     display: flex;
     width: 100%;
+    flex-direction: row
 }
     .main-wrapper-footer {
         display: flex;
+        width: 100%;
+        flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        text-align: center;
     }
         .main-wrapper-footer .text {
             display: flex;
+            align-items: start;
+            width: 50%;
             flex-direction: column;
             font-size: 120px;
         }
-        .main-wrapper-footer .skills {
-            flex-direction: row;
+        .main-wrapper-footer .skill {
+            width: 50%;
         }
-        .main-wrapper-footer .skills a {
+        .main-wrapper-footer .skill a {
+            flex-direction: row;
             text-decoration: none;
         }
+        .main-wrapper-footer .content {
+            flex-direction: row;
 
+        }
+        
 
 
 
