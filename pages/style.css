@@ -199,19 +199,53 @@ main {
             width: 50%;
             flex-direction: column;
             font-size: 120px;
-        }
-        .main-wrapper-footer .skill {
-            width: 50%;
-        }
-        .main-wrapper-footer .skill a {
-            flex-direction: row;
-            text-decoration: none;
+        
         }
         .main-wrapper-footer .content {
+            width: 50%;
             flex-direction: row;
-
         }
-        
+        .main-wrapper-footer .top {
+            font-size: 34px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgb(255, 255, 255);
+        }
+        .main-wrapper-footer .top a {
+            text-decoration: none;
+            color: #fff;
+            border: solid white 1px;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .main-wrapper-footer .bottom {
+            display: flex;
+            flex-direction: row;
+            padding-top: 20px ;
+            justify-content: center;
+            font-size: 28px;
+        }
+        .main-wrapper-footer .contacts a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .main-wrapper-footer .bottom ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .main-wrapper-footer .bottom ul.contacts{
+            display: flex;
+            flex-direction: row;
+        }
+        .main-wrapper-footer .bottom ul.contacts li{
+            margin-left: 10px;
+            border: solid 1px white;
+            border-radius: 10px;
+        }
+        .main-wrapper-footer .contacts a {
+            color: #fff;
+            text-decoration: none;
+        }
 
 
 
