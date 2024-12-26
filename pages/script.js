@@ -24,135 +24,100 @@ updateTextRotation();
 
 function updateDateTime() {
   const dateDisplay = document.getElementById('dateDisplay');
+  if (!dateDisplay) {
+      return;
+  }
   const now = new Date();
-  const optionsDate = {  day: 'numeric', month: 'short' };
-  const formattedDate = now.toLocaleDateString('en-GB', optionsDate);
+  const options = {
+      day: 'numeric',
+      month: 'short'
+  };
+  const formattedDate = now.toLocaleDateString('en-GB', options);
+
   const parts = formattedDate.split(' ');
   if (parts.length === 2) {
-       parts[1] = parts[1].toLowerCase();
+      parts[1] = parts[1].toLowerCase();
   }
-  const lowerCaseMonthDate = parts.join(' ');
-  dateDisplay.textContent = lowerCaseMonthDate;
+   const lowerCaseMonthDate = parts[0] + ' <span class="month">' + parts[1] + '</span>';
+  dateDisplay.innerHTML = lowerCaseMonthDate;
 }
 setInterval(updateDateTime, 1000);
 updateDateTime();
 
+
 // GRADIENT
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollBackground = document.createElement('div');
-  scrollBackground.classList.add('scroll-background');
-  document.body.appendChild(scrollBackground);
+document.addEventListener('scroll', () => {
+  const background = document.querySelector('.background-container');
+
+  if (background) { // Добавил проверку на наличие элемента
+      const scrollY = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      let opacity = scrollY / maxScroll;
+
+      // Ограничение opacity
+      if (opacity > 1) {
+          opacity = 1;
+      } else if (opacity < 0) {
+          opacity = 0;
+      }
+
+      background.style.setProperty('--opacity', opacity);
+  }
+});
+let lastScrollTop = 0;
+const colors = [
+  "linear-gradient(to right,rgb(0, 0, 0),rgb(43, 43, 43))",
+  "linear-gradient(to right,rgb(43, 43, 43),rgb(59, 59, 59))",
+  "linear-gradient(to right,rgb(100, 100, 100),rgb(75, 75, 75))",
+  "linear-gradient(to right,rgb(43, 43, 43),rgb(0, 0, 0))"
+];
+const scrollBackground = document.querySelector('.background-container');
 
 
-  const colors = [
-      'linear-gradient(to bottom, #000, #333)',
-      'linear-gradient(to bottom, #333, #666)',
-      'linear-gradient(to bottom, #666, #999)',
-      'linear-gradient(to bottom, #999, #ccc)',
-      'linear-gradient(to bottom, #ccc, #fff)',
-        'linear-gradient(to bottom, #fff, #ccc)',
-      'linear-gradient(to bottom, #ccc, #999)',
-      'linear-gradient(to bottom, #999, #666)',
-      'linear-gradient(to bottom, #666, #333)'
-  ];
-
-// SCROLL TEXT
-  let lastScrollTop = 0;
-window.addEventListener('scroll', () => {
-      let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
 
 
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercentage = (currentScrollTop / scrollHeight) * 100; 
+
+function handleScroll() {
+   let currentScrollTop = window.scrollY; // Используем только scrollY
+     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercentage = (currentScrollTop / scrollHeight) * 100;
 
       const colorIndex = Math.min(Math.floor((scrollPercentage / 100) * (colors.length -1)) , colors.length -1); 
-       scrollBackground.style.backgroundImage = colors[colorIndex];
-
-        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; 
-    });
-
-
-});
-
-
-// SCROLL TEXT
-document.addEventListener('DOMContentLoaded', () => {
-  const mainContent = document.querySelector('.page-main-content');
-  let headerHeight = document.querySelector('.page-header').offsetHeight;
-
-
-window.addEventListener('scroll', () => {
-   let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-
-   if(currentScrollTop > headerHeight){
-     mainContent.classList.add('visible');
-     } else{
-          mainContent.classList.remove('visible');
-     }
-  });
-}); 
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const mainContent = document.querySelector('.page-main-content');
-  const footer = document.querySelector('.page-footer');
-  let headerHeight = document.querySelector('.page-header').offsetHeight;
-
-
-window.addEventListener('scroll', () => {
-    let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-
-   if(currentScrollTop > headerHeight){
+    if (scrollBackground){
+      scrollBackground.style.backgroundImage = colors[colorIndex];
+    }
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+   const headerHeight = document.querySelector('.page-header').offsetHeight;
+    const mainContent = document.querySelector('.page-main-content');
+    const footer = document.querySelector('.page-footer');
+    if (currentScrollTop > headerHeight) {
+    if(mainContent){
         mainContent.classList.add('visible');
-    } else{
-          mainContent.classList.remove('visible');
-     }
-
-      const documentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.documentElement.clientHeight);
-      const windowHeight = window.innerHeight;
-    const isScrolledToBottom = (currentScrollTop + windowHeight) >= documentHeight;
-
-
-    if(isScrolledToBottom){
-       footer.classList.add('visible');
-     } else {
-       footer.classList.remove('visible')
       }
-  });
+    } else {
+        if(mainContent){
+           mainContent.classList.remove('visible');
+        }
+    }
 
-});
 
+   const isScrolledToBottom = (currentScrollTop + window.innerHeight) >= document.documentElement.scrollHeight;
+   if (isScrolledToBottom) {
+       if(footer){
+           footer.classList.add('visible');
+         }
+    } else {
+        if(footer){
+           footer.classList.remove('visible');
+       }
+   }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  const mainContent = document.querySelector('.page-main-content');
+    handleScroll();
   const header = document.querySelector('.page-header');
-  const footer = document.querySelector('.page-footer');
-
-  let headerHeight = header.offsetHeight;
-
-
- 
+  if(header){
     header.classList.add('visible');
-
-  window.addEventListener('scroll', () => {
-    let currentScrollTop = window.scrollY || document.documentElement.scrollTop;
-     if(currentScrollTop > headerHeight){
-       mainContent.classList.add('visible');
-     } else{
-        mainContent.classList.remove('visible');
-      }
-
-      const documentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.documentElement.clientHeight);
-      const windowHeight = window.innerHeight;
-    const isScrolledToBottom = (currentScrollTop + windowHeight) >= documentHeight;
-
-
-    if(isScrolledToBottom){
-       footer.classList.add('visible');
-     } else {
-       footer.classList.remove('visible')
-      }
-
-  });
-
+  }
+ window.addEventListener('scroll', handleScroll);
 });
