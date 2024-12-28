@@ -9,13 +9,13 @@ body {
 
 }
 
+/* BG+SCROLL */
 .background-container {
-    position: fixed; /* Фиксированный фон, чтобы он не скролился */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image:url(../img/loren-ipsum-generador.webp); /* Замените путь на свой */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,10 +29,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0); /* Начальное состояние: прозрачный черный */
-    transition: background-color 0.5s ease; /* Анимация изменения цвета */
-    z-index: 1; /* Псевдоэлемент на фоне */
-      background-color: rgba(0, 0, 0, var(--opacity, 0)); /* Используем переменную */
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s ease;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, var(--opacity, 0));
 }
 
 .page-main-content {
@@ -47,50 +47,8 @@ body {
 }
 
 .page-header {
-    z-index: 1;
-}
-.page-main-content {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.page-main-content.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.page-header {
-    z-index: 1;
-}
-
-.page-footer {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    z-index: 1;
-}
-
-.page-footer.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-.page-main-content {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.page-main-content.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.page-header {
-    z-index: 1;
-    opacity: 0;
+    z-index: 2; /* Повышаем z-index */
+   opacity: 0;
     transform: translateY(-20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
@@ -101,10 +59,12 @@ body {
 }
 
 .page-footer {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    z-index: 1;
+    opacity: 0; /* Изначально прозрачный */
+     transform: translateY(20px);
+     transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 3; /* Повышаем z-index */
+    /* min-height: 50px; Добавляем минимальную высоту, если контента мало */
+    position: relative;
 }
 
 .page-footer.visible {
@@ -113,12 +73,11 @@ body {
 }
 
 
-
 /* HEADER */
 header {
 
     color: #fff;
-    width: 1600px;
+    width: 1200px;
     margin: 0 auto;
 
 }
@@ -181,7 +140,7 @@ header {
 main {
     display: flex;
     color: #fff;
-    width: 1600px;
+    width: 1200px;
     margin: 0 auto;
 
 }
