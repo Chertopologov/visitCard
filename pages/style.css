@@ -46,9 +46,10 @@ body {
     transform: translateY(0);
 }
 
+
 .page-header {
-    z-index: 2; /* Повышаем z-index */
-   opacity: 0;
+    z-index: 2; /* Повышаем z-index для header*/
+    opacity: 0;
     transform: translateY(-20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
@@ -59,12 +60,11 @@ body {
 }
 
 .page-footer {
-    opacity: 0; /* Изначально прозрачный */
-     transform: translateY(20px);
-     transition: opacity 0.5s ease, transform 0.5s ease;
-    z-index: 3; /* Повышаем z-index */
-    /* min-height: 50px; Добавляем минимальную высоту, если контента мало */
-    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 3; /* Повышаем z-index для footer*/
+    min-height: 100px; /* Добавляем минимальную высоту*/
 }
 
 .page-footer.visible {
