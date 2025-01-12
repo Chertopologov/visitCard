@@ -289,6 +289,101 @@ main {
             
 
 
+/*LOOP */
+
+.loop-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px ;
+  }
+  .loop-container h3 {
+    font-family: 'MyFont';
+    font-size: 48px;
+  }
+  .loop-wrap {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+  }
+  .items {
+    flex-shrink: 0;
+    display: flex;
+    counter-reset: item;
+    justify-content: space-around;
+    min-width: 100%;
+    font-family: 'MyFont';
+    font-size: 60px;
+  }
+
+  .marquee {
+    animation: scroll 20s linear infinite;
+  }
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 20px));
+    }
+  }
+
+
+
+/* .page-interests {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 250px;
+    justify-content: center;
+}
+    .page-interests .text{
+        font-family: 'MyFont' ;
+        font-size: 60px;
+        text-align: center;
+        width: 100%;
+    }
+        .page-interests .text h3 {
+                margin: 0;
+                font-size: 1em;
+                margin-bottom: 10px;
+
+        }
+        .running-line-container {
+            width: 100%; 
+            overflow: hidden;
+        }
+        .running-line {
+            display: inline-block; 
+            white-space: nowrap;  
+            position: relative;
+        }
+        
+        .running-line-text {
+            transition: all 0.1s ease-in-out;   
+
+            display: inline-block;
+        }
+        .page-interests .text .running-line {
+            width: 100%;
+        }
+        .page-interests .text .running-line p {
+            font-family: 'MyFont';
+            font-size: 100px;
+        }
+
+        @keyframes runningLine {
+           from {
+            transform: translateX(0);
+           }
+           to{
+            transform: translateX(calc(- 100% - 20px));
+           }
+        } */
 
 
 
@@ -299,7 +394,7 @@ main {
     display: flex;
     width: 100%;
     flex-direction: row;
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
     .main-wrapper-footer {
         display: flex;
@@ -308,14 +403,16 @@ main {
         align-items: center;
         justify-content: space-between;
         text-align: center;
-        margin-top: 400px;
+        /* margin-top: 200px; */
+        margin-bottom: 50px;
     }
         .main-wrapper-footer .text {
             display: flex;
             align-items: start;
             width: 35%;
             flex-direction: column;
-            font-size: 120px;
+            font-size: 250px;
+            font-family: 'MyFont';
             
         
         }

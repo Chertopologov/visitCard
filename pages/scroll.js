@@ -20,6 +20,7 @@ function handleScroll() {
     const header = document.querySelector('.page-header');
     const mainContent = document.querySelector('.page-main-content');
     const footer = document.querySelector('.page-footer');
+    const loop = document.querySelector('.loop-container');
 
     const headerHeight = header ? header.offsetHeight : 0;
 
@@ -42,6 +43,16 @@ function handleScroll() {
     } else {
         if (mainContent) {
             mainContent.classList.remove('visible');
+        }
+    }
+    // Loop content visibility
+    if (currentScrollTop > headerHeight) {
+        if (loop) {
+            loop.classList.add('visible');
+        }
+    } else {
+        if (loop) {
+            loop.classList.remove('visible');
         }
     }
 

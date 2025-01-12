@@ -44,60 +44,7 @@ function updateDateTime() {
 setInterval(updateDateTime, 1000);
 updateDateTime();
 
-
-
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   const space = document.querySelector('.space');
-//   const numberOfParticles = 100;
-
-//   for (let i = 0; i < numberOfParticles; i++) {
-//       createParticle();
-//   }
-
-//   function createParticle() {
-//       const particle = document.createElement('div');
-//       particle.classList.add('particle');
-
-//       // Случайное начальное положение
-//       particle.style.left = `${Math.random() * 100}vw`;
-//       particle.style.top = `${Math.random() * 100}vh`;
-
-//        // Случайный размер
-//        const size = Math.random() * 4 + 2;
-//        particle.style.width = `${size}px`;
-//        particle.style.height = `${size}px`;
-
-
-//        // Случайная задержка анимации
-//         const animationDelay = Math.random() * 5;
-//        particle.style.animationDelay = `${animationDelay}s`
-
-//       // Случайное время анимации и продолжительность
-//       const duration = Math.random() * 15 + 5;
-//       particle.style.animationDuration = `${duration}s`;
-
-//        // Случайное направление
-//        const direction = Math.random() < 0.5 ? -1 : 1;
-
-//       particle.style.transform = `translate(${Math.random() * 20 * direction}px, ${Math.random() * 20 * direction}px)`
-
-//       space.appendChild(particle);
-
-
-//        // Анимация частицы
-//        particle.animate([
-//            { transform: `translate(${Math.random() * 50 * direction}px, ${Math.random() * 50 * direction}px)  scale(1)` },
-//             {transform: `translate(${Math.random() * 50 * direction}px, ${Math.random() * 50 * direction}px)  scale(0.5)` }
-//           ], {
-//              duration: duration * 1000,
-//              iterations: Infinity,
-//              easing: 'linear' // Использование линейного easinga для равномерного движения
-//          });
-
-//   }
-// });
+// BACKGROUND
 
 document.addEventListener('DOMContentLoaded', function() {
   const space = document.querySelector('.space');
@@ -141,3 +88,46 @@ document.addEventListener('DOMContentLoaded', function() {
           });
   }
 });
+
+
+
+// RUNNING-LINE
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   const loopContainer = document.querySelector('.loop-container');
+//   const loopWrapper = document.querySelector('.loop-wrapper');
+//   const loopElement = document.querySelector('.loop-element');
+//   const loopTextFirst = document.querySelector('.loop-text--first');
+//   const loopTextSecond = document.querySelector('.loop-text--second');
+
+//   if (!loopContainer || !loopWrapper || !loopElement || !loopTextFirst || !loopTextSecond) return;
+
+//   const loopElementWidth = loopElement.offsetWidth;
+//   const loopWrapperWidth = loopWrapper.offsetWidth;
+
+
+//   if (loopElementWidth <= loopWrapperWidth) {
+//       loopElement.style.animationPlayState = 'paused';
+//       return;
+//   }
+
+//  loopTextSecond.style.transform = `translateX(${loopElementWidth}px)`;
+//  let currentPosition = 0
+//    const checkScroll = () => {
+
+
+//        currentPosition -= loopElementWidth/1000; // Сдвиг влево
+
+//          if(currentPosition < -loopElementWidth){
+//              currentPosition = 0;
+//         }
+
+//          loopTextSecond.style.transform = `translateX(${loopElementWidth + currentPosition}px)`;
+
+//        requestAnimationFrame(checkScroll);
+
+//       };
+
+//   checkScroll();
+
+// });
